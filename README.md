@@ -110,6 +110,8 @@ Acessar a página criada com Laravel.
 http://127.0.0.1:8000
 ```
 
+Traduzir para português [Módulo pt-BR](https://github.com/lucascudo/laravel-pt-BR-localization)
+
 ## Como enviar e baixar os arquivos do GitHub
 
 Baixar os arquivos do Git.

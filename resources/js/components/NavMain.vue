@@ -9,6 +9,20 @@ import {
 import { urlIsActive } from '@/lib/utils';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
+import { HomeIcon, UserIcon } from 'lucide-vue-next';
+
+const items: NavItem[] = [
+    {
+        title: 'Dashboard',
+        href: '/dashboard',
+        icon: HomeIcon
+    },
+    {
+        title: 'Usuários',
+        href: '/users',
+        icon: UserIcon
+    }
+]
 
 defineProps<{
     items: NavItem[];

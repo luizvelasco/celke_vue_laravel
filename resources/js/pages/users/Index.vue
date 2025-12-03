@@ -1,33 +1,32 @@
 <script setup lang="ts">
-// Importa o layout padrão do sistema para envolver a página
+/* Importa o layout padrão do sistema para envolver a página */
 import AppLayout from '@/layouts/AppLayout.vue';
 
-// Importar os componentesdo Inertia
+/* Importa o componente Link do Inertia para navegação sem reload */
 import { Link, Head } from '@inertiajs/vue3';
 
-// Importa o tipo BreadcrumbItem para tipar corretamente os breadcrumbs
+/* Importa o tipo BreadcrumbItem para tipar corretamente os breadcrumbs */
 import { type BreadcrumbItem } from '@/types';
-import { Eye, Import } from 'lucide-vue-next';
+import { CirclePlus, Eye } from 'lucide-vue-next';
 
-// Define a interface do usuário, útil para tipagem TyoeScript
+/* Define a interface do usuário, útil para tipagem TypeScript */
 export interface User {
     id: number;
     name: string;
     email: string,
 }
 
-// Recebe os dados da Controller via props usando Inertia
+/* Recebe os dados da controller via props usando Inertia */
 const props = defineProps<{
     users: {
         data: User[];
-        links: {url: string| null; label: string, active: boolean}[];
+        links: { url: string | null; label: string, active: boolean }[];
     }
 }>();
 
-// Define os breadcrumbs que serão exibidos no layout
+/* Define os breadcrumbs que serão exibidos no layout */
 const breadcrumbItems: BreadcrumbItem[] = [
-    { title: 'Usuários', href: ''},
-
+    { title: 'Usuários', href: '' },
 ];
 
 </script>
@@ -37,59 +36,87 @@ const breadcrumbItems: BreadcrumbItem[] = [
     <AppLayout :breadcrumbs="breadcrumbItems">
 
         <!-- Define o título da página para o <head> -->
+
         <Head title="Usuários" />
 
         <!-- Container principal da página -->
-        <div class="shadow-lg sm:rounded-b-lg text-gray-900 p-4 dark:text-gray-200">
+        <div class="content-box">
 
             <!-- Título da seção -->
-            <h1 class="text-xl font-bold mb-4">Usuários</h1>
+            <div class="content-box-header">
+                <h3 class="content-box-title">Usuários</h3>
+                <div class="content-box-btn">
+                    <Link href="/users"
+                        class="btn-success align-icon-btn">
+                    <CirclePlus class="w-4 h-4" />
+                    <span>Cadastrar</span>
+                    </Link>
+                </div>
+            </div>
 
             <!-- Container da tabela com bordas e sombra -->
-            <div class="overflow-hidden sm:rounded-lg bg-white shadow-sm dark:bg-primary-foreground">
+            <div class="table-container">
 
                 <!-- Tabela de usuários -->
-                <table class="min-w-full divide-y divide-gray-200 border-separate border-spacing-0 dark:divide-border">
+                <table class="table">
 
                     <thead>
-                        <tr class="bg-gray-50 dark:bg-primary-foreground">
+                        <tr class="table-header">
                             <!-- Cabeçalhos da tabela -->
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">ID</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">Nome</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">Email</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">Ações</th>
+                            <th
+                                class="table-row-header">
+                                ID</th>
+                            <th
+                                class="table-row-header">
+                                Nome</th>
+                            <th
+                                class="table-row-header">
+                                Email</th>
+                            <th
+                                class="table-row-header">
+                                Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Itera sobre os usuários recebidos das props -->
-                         <tr v-for="user in props.users.data" :key="user.id" class="hover:bg-gray-50 dark:hover:bg-background">
+                        <tr v-for="user in props.users.data" :key="user.id"
+                            class="table-body">
                             <!-- Colunas da tabela -->
-                             <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border break-all">{{ user.id }}</td>
-                             <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border break-all">{{ user.name }}</td>
-                             <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border break-all">{{ user.email }}</td>
-                             <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border text-center tabele-cell">
-                                <div class="flex flex-row space-x-1 items-center justify-center">
-                                    <Link :href="`/users/${user.id}`" class="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 transiction-colors cursor-pointer flex items-center space-x-1">
-                                        <Eye class="w-4 h-4" />
-                                        <span>Visualizar</span>
+                            <td
+                                class="table-row-body">
+                                {{ user.id }}</td>
+                            <td
+                                class="table-row-body">
+                                {{ user.name }}</td>
+                            <td
+                                class="table-row-body">
+                                {{ user.email }}</td>
+                            <td
+                                class="table-actions">
+                                <div class="table-actions-align">
+                                    <Link :href="`/users/${user.id}`"
+                                        class="btn-primary align-icon-btn">
+                                    <Eye class="w-4 h-4" />
+                                    <span>Visualizar</span>
                                     </Link>
                                 </div>
-                             </td>
-                         </tr>
+                            </td>
+
+                        </tr>
                     </tbody>
 
                 </table>
 
                 <!-- Paginação -->
-                 <div class="flex gap-2 justify-center">
+                <div class="flex gap-2 justify-center">
                     <!-- Itera sobre os links de paginação e aplica estilos condicionalmente -->
-                     <Link v-for="link in props.users.links" :key="link.label" :href="link.url ?? ''" 
-                     class="text-sm my-2 px-3 py-1 border rounded" :class="{
-                        'bg-gray-300 dark:bg-background font-bold': link.active, //Link ativo
-                        'text-gray-400 pointer-events-none' : !link.url, //Link desativado
-                     }" v-html="link.label"/>
+                    <Link v-for="link in props.users.links" :key="link.label" :href="link.url ?? ''"
+                        class="text-sm my-2 px-3 py-1 border rounded" :class="{
+                            'bg-gray-300 dark:bg-background font-bold': link.active, // Link ativo
+                            'text-gray-400 pointer-events-none': !link.url, // Link desativado
+                        }" v-html="link.label" />
 
-                 </div>
+                </div>
             </div>
 
         </div>

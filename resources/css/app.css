@@ -169,4 +169,132 @@
     body {
         @apply bg-background text-foreground;
     }
+
+    /****** Início Conteúdo Principal ******/
+    .content-box {
+        @apply shadow-lg sm:rounded-b-lg text-gray-900 p-4 dark:text-gray-200;
+    }
+
+    .content-box-header {
+        @apply flex justify-between items-center border-b-2 border-gray-100 pb-2 mb-3 dark:border-border;
+    }
+
+    .content-box-title {
+        @apply text-base font-semibold text-gray-600 dark:text-gray-400;
+    }
+    
+    .content-box-btn {
+        @apply flex space-x-1;
+    }
+
+    /****** Fim Conteúdo Principal ******/
+
+    /****** Inicio Tabela Listar Registros ******/
+    .table-container {
+        @apply overflow-hidden sm:rounded-lg bg-white shadow-sm dark:bg-primary-foreground;
+    }
+
+    .table {
+        @apply min-w-full divide-y divide-gray-200 border-separate border-spacing-0 dark:divide-border;
+    }
+
+    .table-header {
+        @apply bg-gray-50 dark:bg-primary-foreground;
+    }
+
+    .table-row-header {
+        @apply px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300;
+    }
+
+    .table-body {
+        @apply hover:bg-gray-50 dark:hover:bg-background;
+    }
+
+    .table-row-body {
+        @apply px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border break-all;
+    }
+
+    .table-actions {
+        @apply px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border text-center table-cell;
+    }
+
+    .table-actions-align {
+        @apply flex flex-row space-x-1 items-center justify-center;
+    }
+
+    /****** Fim Tabela Listar Registros ******/
+
+    /****** Início detalhes do registro ******/
+    .detail-box {
+        @apply text-sm overflow-hidden sm:rounded-lg bg-white shadow-sm dark:bg-primary-foreground p-6 space-y-4;
+    }
+
+    .title-detail-content {
+        @apply font-semibold dark:text-gray-400;
+    }
+
+    .detail-content {
+        @apply dark:text-gray-300;
+    }
+
+    /****** Fim detalhes do registro ******/
+
+    /****** Início Botões ******/
+
+    /* Botão azul */
+    .btn-primary {
+        @apply bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão azul médio */
+    .btn-primary-md {
+        @apply bg-blue-500 text-white text-base px-2 py-1 rounded hover:bg-blue-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão azul claro */
+    .btn-info {
+        @apply bg-cyan-500 text-white text-sm px-2 py-1 rounded hover:bg-cyan-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão azul claro */
+    .btn-info-md {
+        @apply bg-cyan-500 text-white text-base px-2 py-1 rounded hover:bg-cyan-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão verde */
+    .btn-success {
+        @apply bg-green-500 text-white text-sm px-2 py-1 rounded hover:bg-green-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão verde */
+    .btn-success-md {
+        @apply bg-green-500 text-white text-base px-2 py-1 rounded hover:bg-green-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão amarelo */
+    .btn-warning {
+        @apply bg-yellow-500 text-white text-sm px-2 py-1 rounded hover:bg-yellow-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão amarelo */
+    .btn-warning-md {
+        @apply bg-yellow-500 text-white text-base px-2 py-1 rounded hover:bg-yellow-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão vermelho */
+    .btn-danger {
+        @apply bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600 transition-colors cursor-pointer;
+    }
+
+    /* Botão vermelho médio */
+    .btn-danger-md {
+        @apply bg-red-500 text-white text-base px-2 py-1 rounded hover:bg-red-600 transition-colors cursor-pointer;
+    }
+
+    /* Alinha os botões em linha */
+    .align-icon-btn {
+        @apply flex items-center space-x-1;
+    }
+
+    /****** Fim Botões ******/
 }

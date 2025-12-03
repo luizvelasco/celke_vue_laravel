@@ -19,4 +19,12 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+
+    public function show(User $user)
+    {
+        // Enviar os dados diretamente para a View
+        return Inertia::render('users/Show', [
+            'user' => $user
+        ]);
+    }
 }

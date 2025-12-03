@@ -15,8 +15,14 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Rota de listar usuários
 Route::get('users', [UserController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('users.index');
+
+// Rota de visualizar detalhes do usuário
+Route::get('users/{user}', [UserController::class, 'show'])
+    ->middleware(['auth', 'verified'])
+    ->name('users.show');
 
 require __DIR__.'/settings.php';

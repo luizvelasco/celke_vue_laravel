@@ -2,12 +2,12 @@
 // Importa o layout padrão do sistema para envolver a página
 import AppLayout from '@/layouts/AppLayout.vue';
 
-// Importa o componente Link do Inertia para navegação sem reload
+// Importar os componentesdo Inertia
 import { Link, Head } from '@inertiajs/vue3';
 
 // Importa o tipo BreadcrumbItem para tipar corretamente os breadcrumbs
 import { type BreadcrumbItem } from '@/types';
-import { Import } from 'lucide-vue-next';
+import { Eye, Import } from 'lucide-vue-next';
 
 // Define a interface do usuário, útil para tipagem TyoeScript
 export interface User {
@@ -37,11 +37,10 @@ const breadcrumbItems: BreadcrumbItem[] = [
     <AppLayout :breadcrumbs="breadcrumbItems">
 
         <!-- Define o título da página para o <head> -->
-
         <Head title="Usuários" />
 
         <!-- Container principal da página -->
-        <div class="bg-white shadow-lg sm:rounded-b-lg text-gray-900 p-4 dark:bg-sidebar dark:text-gray-200">
+        <div class="shadow-lg sm:rounded-b-lg text-gray-900 p-4 dark:text-gray-200">
 
             <!-- Título da seção -->
             <h1 class="text-xl font-bold mb-4">Usuários</h1>
@@ -58,6 +57,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
                             <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">ID</th>
                             <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">Nome</th>
                             <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">Email</th>
+                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 tracking-wider border-b border-gray-200 dark:border-border dark:text-gray-300">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +67,14 @@ const breadcrumbItems: BreadcrumbItem[] = [
                              <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border break-all">{{ user.id }}</td>
                              <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border break-all">{{ user.name }}</td>
                              <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border break-all">{{ user.email }}</td>
-
+                             <td class="px-6 py-2 text-sm text-gray-950 border-b border-gray-200 dark:text-gray-300 dark:border-border text-center tabele-cell">
+                                <div class="flex flex-row space-x-1 items-center justify-center">
+                                    <Link :href="`/users/${user.id}`" class="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 transiction-colors cursor-pointer flex items-center space-x-1">
+                                        <Eye class="w-4 h-4" />
+                                        <span>Visualizar</span>
+                                    </Link>
+                                </div>
+                             </td>
                          </tr>
                     </tbody>
 

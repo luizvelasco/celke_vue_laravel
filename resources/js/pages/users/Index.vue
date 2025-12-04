@@ -9,6 +9,9 @@ import { Link, Head } from '@inertiajs/vue3';
 import { type BreadcrumbItem } from '@/types';
 import { CirclePlus, Eye } from 'lucide-vue-next';
 
+// Importar o componente de paginação
+import Pagination from '@/components/Pagination.vue';
+
 /* Define a interface do usuário, útil para tipagem TypeScript */
 export interface User {
     id: number;
@@ -108,15 +111,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
                 </table>
 
                 <!-- Paginação -->
-                <div class="flex gap-2 justify-center">
-                    <!-- Itera sobre os links de paginação e aplica estilos condicionalmente -->
-                    <Link v-for="link in props.users.links" :key="link.label" :href="link.url ?? ''"
-                        class="text-sm my-2 px-3 py-1 border rounded" :class="{
-                            'bg-gray-300 dark:bg-background font-bold': link.active, // Link ativo
-                            'text-gray-400 pointer-events-none': !link.url, // Link desativado
-                        }" v-html="link.label" />
-
-                </div>
+                <Pagination :links="props.users.links" />
             </div>
 
         </div>

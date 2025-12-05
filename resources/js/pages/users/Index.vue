@@ -7,10 +7,17 @@ import { Link, Head } from '@inertiajs/vue3';
 
 /* Importa o tipo BreadcrumbItem para tipar corretamente os breadcrumbs */
 import { type BreadcrumbItem } from '@/types';
+
+// Importar os ícones
 import { CirclePlus, Eye } from 'lucide-vue-next';
 
 // Importar o componente de paginação
 import Pagination from '@/components/Pagination.vue';
+
+/* Define os breadcrumbs que serão exibidos no layout */
+const breadcrumbItems: BreadcrumbItem[] = [
+    { title: 'Usuários', href: '' },
+];
 
 /* Define a interface do usuário, útil para tipagem TypeScript */
 export interface User {
@@ -26,11 +33,6 @@ const props = defineProps<{
         links: { url: string | null; label: string, active: boolean }[];
     }
 }>();
-
-/* Define os breadcrumbs que serão exibidos no layout */
-const breadcrumbItems: BreadcrumbItem[] = [
-    { title: 'Usuários', href: '' },
-];
 
 </script>
 
@@ -49,7 +51,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
             <div class="content-box-header">
                 <h3 class="content-box-title">Usuários</h3>
                 <div class="content-box-btn">
-                    <Link href="/users"
+                    <Link href="/users/create"
                         class="btn-success align-icon-btn">
                     <CirclePlus class="w-4 h-4" />
                     <span>Cadastrar</span>

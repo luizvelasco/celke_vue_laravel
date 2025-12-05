@@ -20,6 +20,16 @@ Route::get('users', [UserController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('users.index');
 
+// Rota para cadastrar usuário
+Route::get('users/create', [UserController::class, 'create'])
+    ->middleware(['auth', 'verified'])
+    ->name('users.create');
+
+Route::post('users', [UserController::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->name('users.store');
+
+
 // Rota de visualizar detalhes do usuário
 Route::get('users/{user}', [UserController::class, 'show'])
     ->middleware(['auth', 'verified'])

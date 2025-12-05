@@ -7,7 +7,16 @@ import { Link, Head } from '@inertiajs/vue3';
 
 /* Importa o tipo BreadcrumbItem para tipar corretamente os breadcrumbs */
 import { type BreadcrumbItem } from '@/types';
+
+// Importar os ícones
 import { List } from 'lucide-vue-next';
+
+/* Define os breadcrumbs que serão exibidos no layout */
+const breadcrumbItems: BreadcrumbItem[] = [
+    { title: 'Usuários', href: '/users' },
+    { title: 'Visualizar Usuário', href: '' }
+    // { title: `Visualizar Usuário #${props.user.id}`, href: '' }
+];
 
 /* Define a interface do usuário, útil para tipagem TypeScript */
 export interface User {
@@ -22,13 +31,6 @@ export interface User {
 const props = defineProps<{
     user: User
 }>();
-
-/* Define os breadcrumbs que serão exibidos no layout */
-const breadcrumbItems: BreadcrumbItem[] = [
-    { title: 'Usuários', href: '/users' },
-    { title: 'Visualizar Usuário', href: '' }
-    // { title: `Visualizar Usuário #${props.user.id}`, href: '' }
-];
 
 </script>
 

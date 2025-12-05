@@ -239,6 +239,35 @@
 
     /****** Fim detalhes do registro ******/
 
+    /****** Início Formulário ******/
+
+    /* Label dos inputs */
+    .form-label {
+        @apply text-gray-600 block text-sm font-semibold dark:text-gray-300;
+    }
+
+    /* Input padrão */
+    .form-input {
+        @apply border p-2 w-full mt-1 rounded-md border-gray-200 shadow-sm focus:border-gray-300 focus:ring focus:ring-gray-200 focus:outline-none dark:border-gray-600 dark:text-gray-200 dark:placeholder-gray-400;
+    }
+
+    /* Input checkbox */
+    .form-input-checkbox {
+        @apply text-sm text-gray-500 dark:text-gray-400;
+    }
+
+    /* Texto campo obrigatório */
+    .required-field {
+        @apply text-xs text-gray-600 dark:text-gray-500;
+    }
+
+    /* Mensagem de erro no campo */
+    .form-error {
+        @apply text-red-500 text-sm;
+    }
+
+    /****** Fim Formulário ******/
+
     /****** Início Botões ******/
 
     /* Botão azul */

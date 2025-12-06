@@ -28,7 +28,7 @@ const form = useForm({
 
 // Enviar o formuário para o Backend
 const submit = () => {
-
+    form.post('/users');
 };
 
 </script>
